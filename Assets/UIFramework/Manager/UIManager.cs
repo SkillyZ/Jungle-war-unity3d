@@ -3,26 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class UIManager {
+public class UIManager : BaseManager{
+
+    public UIManager(GameFacade facade) : base(facade) 
+    {
+        ParseUIPanelTypeJson();
+    }
+
+    //public UIManager()
+    //{
+    //}
 
     /// 
     /// 单例模式的核心
     /// 1，定义一个静态的对象 在外界访问 在内部构造
     /// 2，构造方法私有化
 
-    private static UIManager _instance;
+    //private static UIManager _instance;
 
-    public static UIManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = new UIManager();
-            }
-            return _instance;
-        }
-    }
+    //public static UIManager Instance
+    //{
+    //    get
+    //    {
+    //        if (_instance == null)
+    //        {
+    //            _instance = new UIManager();
+    //        }
+    //        return _instance;
+    //    }
+    //}
 
     private Transform canvasTransform;
     private Transform CanvasTransform
@@ -40,10 +49,6 @@ public class UIManager {
     private Dictionary<UIPanelType, BasePanel> panelDict;//保存所有实例化面板的游戏物体身上的BasePanel组件
     private Stack<BasePanel> panelStack;
 
-    private UIManager()
-    {
-        ParseUIPanelTypeJson();
-    }
 
     /// <summary>
     /// 把某个页面入栈，  把某个页面显示在界面上

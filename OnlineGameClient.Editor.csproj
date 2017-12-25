@@ -301,6 +301,9 @@
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>C:/Users/12541/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
+    <Reference Include="Common">
+      <HintPath>Assets/Plugins/Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="OnlineGameClient.csproj">
