@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using Common;
 
 public class LoginPanel : BasePanel
 {
@@ -68,6 +69,18 @@ public class LoginPanel : BasePanel
         transform.DOScale(0, 0.5f);
         Tweener tweener = transform.DOLocalMove(new Vector3(1000, 0 , 0), 0.5f);
         tweener.OnComplete(() => uiMng.PopPanel());
+    }
+
+    public void OnLoginResponse(ReturnCode returnCode)
+    {
+        if (returnCode == ReturnCode.Successs)
+        {
+            
+        }
+        else
+        {
+            uiMng.ShowMessage("用户名或密码错误，请重新登录");
+        }
     }
 
     public override void OnExit()

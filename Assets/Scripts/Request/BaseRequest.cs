@@ -8,7 +8,7 @@ public class BaseRequest : MonoBehaviour {
     protected RequestCode requestCode = RequestCode.None;
     protected ActionCode actionCode = ActionCode.None;
     protected GameFacade gameFacade;
-    public void setFacade(GameFacade gameFacade)
+    public void SetFacade(GameFacade gameFacade)
     {
         this.gameFacade = gameFacade;
     }

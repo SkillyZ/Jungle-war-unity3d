@@ -21,12 +21,11 @@ public class RequestManager : BaseManager
 
     public void HandleReponse(ActionCode actionCode, string data)
     {
-       BaseRequest request =  requestDict.TryGet<ActionCode, BaseRequest>(actionCode);
+        BaseRequest request =  requestDict.TryGet<ActionCode, BaseRequest>(actionCode);
         if (request == null)
         {
             Debug.LogWarning("无法得到RequestCode" + actionCode);return;
         }
-
         request.OnResponse(data);
     }
 

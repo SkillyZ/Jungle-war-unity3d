@@ -15,7 +15,6 @@ public class ClientManager :BaseManager {
     private Socket client;
     private Message msg = new Message();
 
-
     public ClientManager(GameFacade facade) : base(facade) { }
 
     public override void OnInit()
@@ -26,6 +25,7 @@ public class ClientManager :BaseManager {
         try
         {
             client.Connect(IP, PORT);
+            Start();
         }
         catch (System.Exception e)
         {
@@ -46,6 +46,7 @@ public class ClientManager :BaseManager {
             int count = client.EndReceive(ar);
             msg.ReadMessage(count, OnProcessDataCallBack);
             Start();
+
         }
         catch (Exception e)
         {
@@ -61,8 +62,15 @@ public class ClientManager :BaseManager {
 
     public void SendRequest(RequestCode requestCode, ActionCode actionCode, string data)
     {
-        byte[] bytes = Message.PackData(requestCode, actionCode, data);
-        client.Send(bytes);
+        try
+        {
+            byte[] bytes = Message.PackData(requestCode, actionCode, data);
+            client.Send(bytes);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("无法连接数据库" + e);
+        }
     }
 
     public override void OnDestory()
