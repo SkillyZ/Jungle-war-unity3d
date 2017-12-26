@@ -10,6 +10,13 @@ public class UIManager : BaseManager{
         ParseUIPanelTypeJson();
     }
 
+    public override void OnInit()
+    {
+        base.OnInit();
+        PushPanel(UIPanelType.Message);
+        PushPanel(UIPanelType.Start);
+    }
+
     //public UIManager()
     //{
     //}
@@ -48,6 +55,7 @@ public class UIManager : BaseManager{
     private Dictionary<UIPanelType, string> panelPathDict;//存储所有面板Prefab的路径
     private Dictionary<UIPanelType, BasePanel> panelDict;//保存所有实例化面板的游戏物体身上的BasePanel组件
     private Stack<BasePanel> panelStack;
+    private MessagePanel msgPanel;
 
 
     /// <summary>
@@ -113,6 +121,7 @@ public class UIManager : BaseManager{
             string path = panelPathDict.TryGet(panelType);
             GameObject instPanel = GameObject.Instantiate(Resources.Load(path)) as GameObject;
             instPanel.transform.SetParent(CanvasTransform,false);
+            instPanel.GetComponent<BasePanel>().UIMng = this;
             panelDict.Add(panelType, instPanel.GetComponent<BasePanel>());
             return instPanel.GetComponent<BasePanel>();
         }
@@ -142,6 +151,20 @@ public class UIManager : BaseManager{
             panelPathDict.Add(info.panelType, info.path);
         }
     }
+    public void InjectMsgPanel(MessagePanel messagePanel)
+    {
+        this.msgPanel = messagePanel;
+    }
+
+    public void ShowMessage(string msg)
+    {
+        if (msgPanel == null)
+        {
+            Debug.Log("无法显示提示显示, MsgPanel为空");return;
+        }
+        msgPanel.ShowMessage(msg);
+    }
+
 
     /// <summary>
     /// just for test

@@ -1,26 +1,25 @@
 {
 "infoList":
 [
-{"panelTypeString":"Message",
-"path":"UIPanel/MessagePanel"},
+    {
+        "panelTypeString": "Message",
+        "path": "UIPanel/MessagePanel"
+    },
 
-{"panelTypeString":"Start",
-"path":"UIPanel/StartPanel"},
+    {
+        "panelTypeString": "Start",
+        "path": "UIPanel/StartPanel"
+    },
 
-{"panelTypeString":"LoginMenu",
-"path":"UIPanel/LoginPanel"},
+    {
+        "panelTypeString": "Login",
+        "path": "UIPanel/LoginPanel"
+    },
 
-{"panelTypeString":"Register",
-"path":"UIPanel/RegisterPanel"},
-
-{"panelTypeString":"Skill",
-"path":"UIPanel/SkillPanel"},
-
-{"panelTypeString":"System",
-"path":"UIPanel/SystemPanel"},
-
-{"panelTypeString":"Task",
-"path":"UIPanel/TaskPanel"}
+    {
+        "panelTypeString": "Register",
+        "path": "UIPanel/RegisterPanel"
+    }
 
 ]
 }
