@@ -7,6 +7,16 @@ public class MessagePanel : BasePanel {
 
     private Text text;
     private float showTime = 1;
+    private string message = "";
+
+    private void Update()
+    {
+        if (message != "")
+        {
+            ShowMessage(message);
+            message = "";
+        }
+    }
 
     public override void OnEnter()
     {
@@ -16,10 +26,15 @@ public class MessagePanel : BasePanel {
         uiMng.InjectMsgPanel(this);
     }
 
+    public void ShowMessageSync(string msg)
+    {
+        this.message = msg;
+    }
+
     public void ShowMessage(string msg)
     {
         //text.color = Color.white;
-        text.CrossFadeAlpha(1, 0, false);
+        text.CrossFadeAlpha(1, 0.2f, false);
         text.text = msg;
         text.enabled = true;
         Invoke("Hide", showTime);

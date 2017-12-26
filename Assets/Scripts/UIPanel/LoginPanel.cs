@@ -79,7 +79,7 @@ public class LoginPanel : BasePanel
         }
         else
         {
-            uiMng.ShowMessage("用户名或密码错误，请重新登录");
+            uiMng.ShowMessageSync("用户名或密码错误，请重新登录");
         }
     }
 

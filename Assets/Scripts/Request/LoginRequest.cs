@@ -7,12 +7,12 @@ public class LoginRequest : BaseRequest {
 
     private LoginPanel loginPanel;
 
-	// Use this for initialization
-	void Start () {
+    public override void Awake()
+    {
         requestCode = RequestCode.User;
         actionCode = ActionCode.Login;
         loginPanel = GetComponent<LoginPanel>();
-
+        base.Awake();
     }
 	
     public void SendRequest(string username, string password)
