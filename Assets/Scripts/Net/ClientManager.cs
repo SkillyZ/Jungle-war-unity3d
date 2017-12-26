@@ -54,9 +54,9 @@ public class ClientManager :BaseManager {
 
     }
 
-    private void OnProcessDataCallBack(RequestCode requestCode, string data)
+    private void OnProcessDataCallBack(ActionCode actionCode, string data)
     {
-        facade.HandleReponse(requestCode, data);
+        facade.HandleReponse(actionCode, data);
     }
 
     public void SendRequest(RequestCode requestCode, ActionCode actionCode, string data)

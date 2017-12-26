@@ -7,7 +7,11 @@ using UnityEngine.UI;
 public class LoginPanel : BasePanel
 {
     private Button close;
-
+    //private Button loginButton;
+    //private Button registerButton;
+    private InputField username;
+    private InputField password;
+    private LoginRequest loginRequest;
 
 
     public override void OnEnter()
@@ -20,8 +24,43 @@ public class LoginPanel : BasePanel
         transform.localPosition = new Vector3(1000, 0, 0);
         transform.DOLocalMove(Vector3.zero, 0.4f);
 
+        loginRequest = GetComponent<LoginRequest>();
+        username = transform.Find("UserLabel/UsernameInput").GetComponent<InputField>();
+        password = transform.Find("PssswordLabel/passwordInput").GetComponent<InputField>();
         close = transform.Find("Close").GetComponent<Button>();
         close.onClick.AddListener(OnCloseClick);
+
+        Button loginButton = transform.Find("LoginButton").GetComponent<Button>();
+        Button registerButton = transform.Find("RegisterButton").GetComponent<Button>();
+        loginButton.onClick.AddListener(OnLoginClick);
+        registerButton.onClick.AddListener(OnRegisterClick);
+
+    }
+
+    private void OnLoginClick()
+    {
+        string msg = "";
+        if (string.IsNullOrEmpty(username.text))
+        {
+            msg += "用户名不能为空.";
+        }
+
+        if (string.IsNullOrEmpty(password.text))
+        {
+            msg += "密码不能为空";
+        }
+
+        if (msg != "")
+        {
+            uiMng.ShowMessage(msg);
+            return;
+        }
+        loginRequest.SendRequest(username.text, password.text);
+    }
+
+    private void OnRegisterClick()
+    {
+
     }
 
     private void OnCloseClick()
