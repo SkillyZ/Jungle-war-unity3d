@@ -10,4 +10,5 @@ public class BaseManager {
     }
     public virtual void OnInit() { }
     public virtual void OnDestory() { }
+    public virtual void Update() { }
 }

@@ -40,6 +40,7 @@ public class LoginPanel : BasePanel
 
     private void OnLoginClick()
     {
+        PlayClickSound();
         string msg = "";
         if (string.IsNullOrEmpty(username.text))
         {
@@ -61,11 +62,13 @@ public class LoginPanel : BasePanel
 
     private void OnRegisterClick()
     {
+        PlayClickSound();
         uiMng.PushPanel(UIPanelType.Register);
     }
 
     private void OnCloseClick()
     {
+        PlayClickSound();
         transform.DOScale(0, 0.5f);
         Tweener tweener = transform.DOLocalMove(new Vector3(1000, 0 , 0), 0.5f);
         tweener.OnComplete(() => uiMng.PopPanel());
@@ -73,9 +76,9 @@ public class LoginPanel : BasePanel
 
     public void OnLoginResponse(ReturnCode returnCode)
     {
-        if (returnCode == ReturnCode.Successs)
+        if (returnCode == ReturnCode.Success)
         {
-            
+            uiMng.PushPanelSync(UIPanelType.RoomList);
         }
         else
         {
@@ -83,11 +86,21 @@ public class LoginPanel : BasePanel
         }
     }
 
+    public override void OnResume()
+    {
+        base.OnResume();
+        gameObject.SetActive(true);
+        transform.localScale = Vector3.zero;
+        transform.DOScale(1, 0.4f);
+        transform.localPosition = new Vector3(1000, 0, 0);
+        transform.DOLocalMove(Vector3.zero, 0.4f);
+    }
+
     public override void OnPause()
     {
-        base.OnPause();
-        //gameObject.SetActive(false);
-
+        transform.DOScale(0, 0.5f);
+        Tweener tweener = transform.DOLocalMove(new Vector3(1000, 0, 0), 0.5f);
+        tweener.OnComplete(() => gameObject.SetActive(false));
     }
 
     public override void OnExit()

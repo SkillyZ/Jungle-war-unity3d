@@ -32,8 +32,19 @@ public class GameFacade : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        UpdateManager();
+
+    }
+
+    private void UpdateManager()
+    {
+        uiMng.Update();
+        audioMng.Update();
+        cameraMng.Update();
+        playerMng.Update();
+        requestMng.Update();
+        clientMng.Update();
+    }
 
     private void InitManager()
     {
@@ -90,5 +101,15 @@ public class GameFacade : MonoBehaviour {
     public void SendRequest(RequestCode requestCode, ActionCode actionCode, string data)
     {
         clientMng.SendRequest(requestCode, actionCode, data);
+    }
+
+    public void PlayBgSound(string soundName)
+    {
+        audioMng.PlayBgSound(soundName);
+    }
+
+    public void PlayNormalSound(string soundName)
+    {
+        audioMng.PlayNormalSound(soundName);
     }
 }

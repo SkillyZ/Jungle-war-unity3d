@@ -38,6 +38,7 @@ public class RegisterPanel : BasePanel
 
     private void OnRegisterClick()
     {
+        PlayClickSound();
         string msg = "";
         if (string.IsNullOrEmpty(username.text))
         {
@@ -70,6 +71,7 @@ public class RegisterPanel : BasePanel
 
     private void OnCloseClick()
     {
+        PlayClickSound();
         transform.DOScale(0, 0.5f);
         Tweener tweener = transform.DOLocalMove(new Vector3(1000, 0, 0), 0.5f);
         tweener.OnComplete(() => uiMng.PopPanel());
@@ -77,7 +79,7 @@ public class RegisterPanel : BasePanel
 
     public void OnRegisterResponse(ReturnCode returnCode)
     {
-        if (returnCode == ReturnCode.Successs)
+        if (returnCode == ReturnCode.Success)
         {
 
             uiMng.ShowMessageSync("成功");

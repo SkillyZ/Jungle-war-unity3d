@@ -4,10 +4,21 @@ using System.Collections;
 public class BasePanel : MonoBehaviour {
 
     protected UIManager uiMng;
+    private GameFacade facade;
 
     public UIManager UIMng
     {
         set { uiMng = value; }
+    }
+
+    public GameFacade Facade
+    {
+        set { facade = value; }
+    }
+
+    protected void PlayClickSound()
+    {
+        facade.PlayNormalSound(AudioManager.Sound_ButtonClick);
     }
 
     /// <summary>
