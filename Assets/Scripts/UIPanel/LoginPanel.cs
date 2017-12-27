@@ -14,11 +14,8 @@ public class LoginPanel : BasePanel
     private InputField password;
     private LoginRequest loginRequest;
 
-
-    public override void OnEnter()
+    private void Start()
     {
-        base.OnEnter();
-
         gameObject.SetActive(true);
         transform.localScale = Vector3.zero;
         transform.DOScale(1, 0.4f);
@@ -35,8 +32,13 @@ public class LoginPanel : BasePanel
         Button registerButton = transform.Find("RegisterButton").GetComponent<Button>();
         loginButton.onClick.AddListener(OnLoginClick);
         registerButton.onClick.AddListener(OnRegisterClick);
-
     }
+
+    //public override void OnEnter()
+    //{
+    //    base.OnEnter();
+
+    //}
 
     private void OnLoginClick()
     {

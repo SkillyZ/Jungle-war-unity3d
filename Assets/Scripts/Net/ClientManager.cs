@@ -43,6 +43,10 @@ public class ClientManager :BaseManager {
     {
         try
         {
+            if (client == null  || client.Connected == false)
+            {
+                return;
+            }
             int count = client.EndReceive(ar);
             msg.ReadMessage(count, OnProcessDataCallBack);
             Start();

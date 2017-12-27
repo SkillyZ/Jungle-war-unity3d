@@ -34,10 +34,10 @@ public class RoomListPanel : BasePanel {
     }
     public override void OnEnter()
     {
-        //SetBattleRes();
-        //if (battleRes != null)
-        //    EnterAnim();
-        //if(listRoomRequest==null)
+        SetBattleRes();
+        if (battleRes != null)
+            EnterAnim();
+        //if (listRoomRequest == null)
         //    listRoomRequest = GetComponent<ListRoomRequest>();
         //listRoomRequest.SendRequest();
     }
