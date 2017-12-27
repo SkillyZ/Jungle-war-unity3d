@@ -61,7 +61,7 @@ public class LoginPanel : BasePanel
 
     private void OnRegisterClick()
     {
-
+        uiMng.PushPanel(UIPanelType.Register);
     }
 
     private void OnCloseClick()
@@ -81,6 +81,13 @@ public class LoginPanel : BasePanel
         {
             uiMng.ShowMessageSync("用户名或密码错误，请重新登录");
         }
+    }
+
+    public override void OnPause()
+    {
+        base.OnPause();
+        //gameObject.SetActive(false);
+
     }
 
     public override void OnExit()

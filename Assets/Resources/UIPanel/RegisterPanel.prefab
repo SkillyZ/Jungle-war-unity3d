@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 114004305676678412}
   - component: {fileID: 114953997271188118}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 222252543625437370}
   - component: {fileID: 114329766876700342}
   - component: {fileID: 114187785883824032}
+  - component: {fileID: 114028573447970286}
   m_Layer: 5
   m_Name: RegisterPanel
   m_TagString: Untagged
@@ -376,6 +377,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u6CE8\u518C"
+--- !u!114 &114028573447970286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1453410913426344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454587ae15bec024ca96e4ecff808081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114103050659191652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -492,7 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6901961, g: 0.41176474, b: 0.3529412, a: 0.616}
+  m_Color: {r: 0.6901961, g: 0.41176474, b: 0.3529412, a: 0.834}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1432,7 +1444,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1214879764500302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 302.9, y: 188.6, z: 0}
+  m_LocalPosition: {x: 297.3, y: 183.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224357084799929866}
@@ -1440,8 +1452,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 302.9, y: 188.6}
-  m_SizeDelta: {x: 26.7, y: 26.7}
+  m_AnchoredPosition: {x: 297.3, y: 183.02}
+  m_SizeDelta: {x: 42.35, y: 42.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224947438923544540
 RectTransform:
